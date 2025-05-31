@@ -135,30 +135,6 @@
             </div>
         </div>
     </section>
-            
-            <section id="screenshots-section" class="pt-6 border-t border-slate-300/70 dark:border-slate-700/70 hidden">
-                <h2 class="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-4">
-                    Gallery
-                </h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Desktop+View" alt="Desktop View Screenshot" class="screenshot-item rounded-lg shadow-lg object-cover w-full h-auto aspect-video cursor-pointer hover:opacity-80 transition-opacity" onerror="this.src='https://placehold.co/600x400/E2E8F0/4A5568?text=Image+Not+Found'; this.onerror=null;">
-                    <img src="https://placehold.co/600x400/CBD5E0/2D3748?text=File+Explorer" alt="File Explorer Screenshot" class="screenshot-item rounded-lg shadow-lg object-cover w-full h-auto aspect-video cursor-pointer hover:opacity-80 transition-opacity" onerror="this.src='https://placehold.co/600x400/CBD5E0/2D3748?text=Image+Not+Found'; this.onerror=null;">
-                    <img src="https://placehold.co/600x400/A0AEC0/1A202C?text=Settings+Panel" alt="Settings Panel Screenshot" class="screenshot-item rounded-lg shadow-lg object-cover w-full h-auto aspect-video sm:col-span-2 cursor-pointer hover:opacity-80 transition-opacity" onerror="this.src='https://placehold.co/600x400/A0AEC0/1A202C?text=Image+Not+Found'; this.onerror=null;">
-                </div>
-            </section>
-        </main>
-
-    <div id="screenshot-modal" class="fixed inset-0 bg-black bg-opacity-75 dark:bg-opacity-80 backdrop-blur-sm items-center justify-center p-4 hidden z-50 transition-opacity duration-300 ease-in-out">
-        <div class="modal-content bg-white dark:bg-slate-800 p-2 rounded-lg shadow-2xl relative max-w-4xl w-auto">
-             <img id="modal-image" src="" alt="Full screenshot" class="rounded-md object-contain">
-            <button id="modal-close-btn" class="absolute -top-3 -right-3 bg-sky-500 text-white rounded-full p-1.5 shadow-lg hover:bg-sky-600 dark:bg-sky-600 dark:hover:bg-sky-700 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 dark:focus:ring-sky-500 z-10">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-        </div>
-    </div>
-       </section>
         </a>
       <footer class="mt-16 pt-10 border-t border-slate-300/50 dark:border-slate-700/50 text-center">
         <p class="text-sm text-slate-600 dark:text-slate-400">
@@ -167,7 +143,7 @@
       </footer>
     </div>
   </div>
-
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const screenshotBtnToggler = document.getElementById('screenshot-btn-toggler');
