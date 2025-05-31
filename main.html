@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiteOS11</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .mica-element {
+            /* backdrop-filter is applied via Tailwind: backdrop-blur-xl */
+        }
+        /* Scrollbar styling */
+        html {
+            overflow-y: scroll;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        /* Light mode scrollbar thumb */
+        html:not(.dark) ::-webkit-scrollbar-thumb {
+            background: #A0AEC0;
+            border-radius: 4px;
+        }
+        html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+            background: #718096;
+        }
+        /* Dark mode scrollbar thumb */
+        html.dark ::-webkit-scrollbar-thumb {
+            background: #4A5568; /* Adjusted for dark mode */
+            border-radius: 4px;
+        }
+        html.dark ::-webkit-scrollbar-thumb:hover {
+            background: #2D3748; /* Adjusted for dark mode hover */
+        }
+
+        /* Firefox scrollbar styling */
+        html:not(.dark) {
+          scrollbar-width: thin;
+          scrollbar-color: #A0AEC0 transparent; /* Light mode */
+        }
+        html.dark {
+          scrollbar-width: thin;
+          scrollbar-color: #4A5568 transparent; /* Dark mode */
+        }
+
+        /* Modal styles */
+        .modal-active {
+            display: flex;
+        }
+        .modal-content img {
+            max-width: 90vw; /* Max width of image in modal */
+            max-height: 80vh; /* Max height of image in modal */
+        }
+    </style>
+    <script>
+        // Function to apply theme based on system preference
+        const applySystemTheme = () => {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        };
+
+        // Apply theme on initial load
+        applySystemTheme();
+
+        // Listen for changes in system theme preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applySystemTheme);
+    </script>
+</head>
+<body class="font-inter antialiased bg-gradient-to-br from-slate-200 via-gray-200 to-sky-200 dark:from-slate-900 dark:via-gray-900 dark:to-sky-900 text-slate-800 dark:text-slate-200 transition-colors duration-300">
+    <div id="app-container" class="min-h-screen flex flex-col items-center justify-center p-4 selection:bg-sky-500 selection:text-white">
+
+        <main class="mica-element w-full max-w-2xl bg-white/70 dark:bg-slate-800/70 backdrop-blur-2xl shadow-2xl rounded-xl p-6 md:p-10 text-center space-y-8 ring-1 ring-black/5 dark:ring-white/10">
+            <header class="space-y-2">
+                <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white">
+                    minimal<span class="text-sky-500">OS</span>
+                </h1>
+                <p class="text-slate-600 dark:text-slate-300 text-lg">
+                    A lightweight version of Windows 10/11 that improve performance & privacy-focused.
+                </p>
+            </header>
+
+            <section id="actions" class="space-y-3 md:space-y-0 md:space-x-3 flex flex-col sm:flex-row justify-center items-center">
+                <a href="#" id="download-btn" class="w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-white bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-opacity-75 shadow-lg hover:shadow-sky-500/50 transform hover:scale-105 transition-all duration-200 ease-in-out">
+                    Download
+                </a>
+                <a href="#screenshots" id="screenshot-btn-toggler" class="w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-slate-700 dark:text-slate-100 bg-slate-200/70 hover:bg-slate-300/70 dark:bg-slate-700/70 dark:hover:bg-slate-600/70 focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-500 focus:ring-opacity-75 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out">
+                    Screenshots
+                </a>
+                <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-slate-700 dark:text-slate-100 bg-slate-200/70 hover:bg-slate-300/70 dark:bg-slate-700/70 dark:hover:bg-slate-600/70 focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-500 focus:ring-opacity-75 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out">
+                    Changelog
+                </a>
+            </section>
+
+            <section class="text-left text-sm text-slate-600 dark:text-slate-400 border-t border-slate-300/70 dark:border-slate-700/70 pt-6 space-y-3">
+                <h2 class="text-xl font-semibold text-slate-700 dark:text-slate-200 mb-2">
+                    Why choose minimalOS?
+                </h2>
+                <p>A lightweight modification of Windows, designed for anyone alike who desires a trusted & performant experience without sacrificing functionality.</p>
+                <ul class="list-disc list-inside space-y-1 pl-2">
+                    <li><span class="font-semibold text-sky-500">Enhanced privacy:</span> Reduces Windows telemetry & data collection by disabling services.</li>
+                    <li><span class="font-semibold text-sky-500">Better performance</span> By removing useless features packed in stock Windows, minimalOS can give more performances, even on low-end PCs.</li>
+                    <li><span class="font-semibold text-sky-500">Better user experience:</span> minimalOS has a few minor tweaks that make the UX better.</li>
+                </ul>
+            </section>
+
+            <section id="screenshots-section" class="pt-6 border-t border-slate-300/70 dark:border-slate-700/70 hidden">
+                <h2 class="text-2xl font-semibold text-slate-800 dark:text-slate-100 mb-4">
+                    Gallery
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <img src="https://placehold.co/600x400/E2E8F0/4A5568?text=Desktop+View" alt="Desktop View Screenshot" class="screenshot-item rounded-lg shadow-lg object-cover w-full h-auto aspect-video cursor-pointer hover:opacity-80 transition-opacity" onerror="this.src='https://placehold.co/600x400/E2E8F0/4A5568?text=Image+Not+Found'; this.onerror=null;">
+                    <img src="https://placehold.co/600x400/CBD5E0/2D3748?text=File+Explorer" alt="File Explorer Screenshot" class="screenshot-item rounded-lg shadow-lg object-cover w-full h-auto aspect-video cursor-pointer hover:opacity-80 transition-opacity" onerror="this.src='https://placehold.co/600x400/CBD5E0/2D3748?text=Image+Not+Found'; this.onerror=null;">
+                    <img src="https://placehold.co/600x400/A0AEC0/1A202C?text=Settings+Panel" alt="Settings Panel Screenshot" class="screenshot-item rounded-lg shadow-lg object-cover w-full h-auto aspect-video sm:col-span-2 cursor-pointer hover:opacity-80 transition-opacity" onerror="this.src='https://placehold.co/600x400/A0AEC0/1A202C?text=Image+Not+Found'; this.onerror=null;">
+                </div>
+            </section>
+        </main>
+
+        <footer class="mt-10 text-sm text-slate-500 dark:text-slate-400">
+            <p>© <span id="current-year"></span> Your AtlasOS Inspired Page. Built with Tailwind CSS.</p>
+        </footer>
+    </div>
+
+    <div id="screenshot-modal" class="fixed inset-0 bg-black bg-opacity-75 dark:bg-opacity-80 backdrop-blur-sm items-center justify-center p-4 hidden z-50 transition-opacity duration-300 ease-in-out">
+        <div class="modal-content bg-white dark:bg-slate-800 p-2 rounded-lg shadow-2xl relative max-w-4xl w-auto">
+             <img id="modal-image" src="" alt="Full screenshot" class="rounded-md object-contain">
+            <button id="modal-close-btn" class="absolute -top-3 -right-3 bg-sky-500 text-white rounded-full p-1.5 shadow-lg hover:bg-sky-600 dark:bg-sky-600 dark:hover:bg-sky-700 transition-colors focus:outline-none focus:ring-2 focus:ring-sky-400 dark:focus:ring-sky-500 z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const screenshotBtnToggler = document.getElementById('screenshot-btn-toggler');
+            const screenshotsSection = document.getElementById('screenshots-section');
+            const currentYearSpan = document.getElementById('current-year');
+
+            if (screenshotBtnToggler && screenshotsSection) {
+                screenshotBtnToggler.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const isHidden = screenshotsSection.classList.toggle('hidden');
+                    screenshotsSection.classList.toggle('opacity-0', isHidden);
+                    screenshotsSection.classList.toggle('opacity-100', !isHidden);
+                    screenshotsSection.classList.toggle('max-h-0', isHidden);
+                    screenshotsSection.classList.toggle('max-h-screen', !isHidden); 
+
+                    if (!isHidden) {
+                        setTimeout(() => { 
+                             screenshotsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 100); 
+                    }
+                });
+                screenshotsSection.classList.add('transition-all', 'duration-500', 'ease-in-out', 'overflow-hidden');
+                 if (screenshotsSection.classList.contains('hidden')) {
+                    screenshotsSection.classList.add('opacity-0', 'max-h-0');
+                } else {
+                    screenshotsSection.classList.add('opacity-100', 'max-h-screen');
+                }
+            }
+
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+
+            const modal = document.getElementById('screenshot-modal');
+            const modalImage = document.getElementById('modal-image');
+            const modalCloseBtn = document.getElementById('modal-close-btn');
+            const screenshotItems = document.querySelectorAll('.screenshot-item');
+
+
+            if (modal && modalImage && modalCloseBtn && screenshotItems.length > 0) {
+                screenshotItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        modalImage.src = item.src;
+                        modal.classList.remove('hidden');
+                        modal.classList.add('modal-active');
+                        document.body.style.overflow = 'hidden'; 
+                    });
+                });
+
+                const closeModal = () => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('modal-active');
+                    modalImage.src = ""; 
+                    document.body.style.overflow = ''; 
+                };
+
+                modalCloseBtn.addEventListener('click', closeModal);
+                modal.addEventListener('click', (event) => {
+                    if (event.target === modal) { 
+                        closeModal();
+                    }
+                });
+                document.addEventListener('keydown', (event) => {
+                    if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                        closeModal();
+                    }
+                });
+
+            } else {
+                console.warn("Modal elements or screenshot items not found.");
+            }
+        });
+    </script>
+</body>
+</html>
