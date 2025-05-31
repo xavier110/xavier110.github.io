@@ -96,7 +96,7 @@
                 <a href="#" id="download-btn" class="w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-white bg-sky-500 hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-400 focus:ring-opacity-75 shadow-lg hover:shadow-sky-500/50 transform hover:scale-105 transition-all duration-200 ease-in-out">
                     Download
                 </a>
-                <a href="#screenshots" id="screenshot-btn-toggler" class="w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-slate-700 dark:text-slate-100 bg-slate-200/70 hover:bg-slate-300/70 dark:bg-slate-700/70 dark:hover:bg-slate-600/70 focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-500 focus:ring-opacity-75 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out">
+                <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-slate-700 dark:text-slate-100 bg-slate-200/70 hover:bg-slate-300/70 dark:bg-slate-700/70 dark:hover:bg-slate-600/70 focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-500 focus:ring-opacity-75 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out">
                     Screenshots
                 </a>
                 <a href="https://xavier110.github.io/changelogs" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3 rounded-lg font-semibold text-slate-700 dark:text-slate-100 bg-slate-200/70 hover:bg-slate-300/70 dark:bg-slate-700/70 dark:hover:bg-slate-600/70 focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-500 focus:ring-opacity-75 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-200 ease-in-out">
@@ -139,79 +139,5 @@
           &copy; <span id="currentYear">2025</span> minimalOS. Built with Tailwind CSS.
         </p>
       </footer>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const screenshotBtnToggler = document.getElementById('screenshot-btn-toggler');
-            const screenshotsSection = document.getElementById('screenshots-section');
-            const currentYearSpan = document.getElementById('current-year');
-
-            if (screenshotBtnToggler && screenshotsSection) {
-                screenshotBtnToggler.addEventListener('click', (event) => {
-                    event.preventDefault();
-                    const isHidden = screenshotsSection.classList.toggle('hidden');
-                    screenshotsSection.classList.toggle('opacity-0', isHidden);
-                    screenshotsSection.classList.toggle('opacity-100', !isHidden);
-                    screenshotsSection.classList.toggle('max-h-0', isHidden);
-                    screenshotsSection.classList.toggle('max-h-screen', !isHidden); 
-
-                    if (!isHidden) {
-                        setTimeout(() => { 
-                             screenshotsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                        }, 100); 
-                    }
-                });
-                screenshotsSection.classList.add('transition-all', 'duration-500', 'ease-in-out', 'overflow-hidden');
-                 if (screenshotsSection.classList.contains('hidden')) {
-                    screenshotsSection.classList.add('opacity-0', 'max-h-0');
-                } else {
-                    screenshotsSection.classList.add('opacity-100', 'max-h-screen');
-                }
-            }
-
-            if (currentYearSpan) {
-                currentYearSpan.textContent = new Date().getFullYear();
-            }
-
-            const modal = document.getElementById('screenshot-modal');
-            const modalImage = document.getElementById('modal-image');
-            const modalCloseBtn = document.getElementById('modal-close-btn');
-            const screenshotItems = document.querySelectorAll('.screenshot-item');
-
-
-            if (modal && modalImage && modalCloseBtn && screenshotItems.length > 0) {
-                screenshotItems.forEach(item => {
-                    item.addEventListener('click', () => {
-                        modalImage.src = item.src;
-                        modal.classList.remove('hidden');
-                        modal.classList.add('modal-active');
-                        document.body.style.overflow = 'hidden'; 
-                    });
-                });
-
-                const closeModal = () => {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('modal-active');
-                    modalImage.src = ""; 
-                    document.body.style.overflow = ''; 
-                };
-
-                modalCloseBtn.addEventListener('click', closeModal);
-                modal.addEventListener('click', (event) => {
-                    if (event.target === modal) { 
-                        closeModal();
-                    }
-                });
-                document.addEventListener('keydown', (event) => {
-                    if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
-                        closeModal();
-                    }
-                });
-
-            } else {
-                console.warn("Modal elements or screenshot items not found.");
-            }
-        });
-    </script>
 </body>
 </html>
